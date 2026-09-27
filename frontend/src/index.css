@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  [data-theme="cyber-cyan"] {
+    --bg-main: #060A10;
+    --surface: #0C121B;
+    --surface-secondary: #131B27;
+    --border-color: #1F2A3C;
+    --border-subtle: #2C3C54;
+    --text-primary: #F0F6FC;
+    --text-muted: #8E9BAE;
+    --accent: #00E5FF;
+    --accent-glow: rgba(0, 229, 255, 0.22);
+    --success: #34D399;
+    --warning: #FBBF24;
+    --danger: #FB7185;
+  }
+
+  [data-theme="emerald"] {
+    --bg-main: #060E0B;
+    --surface: #0B1712;
+    --surface-secondary: #102119;
+    --border-color: #1B3528;
+    --border-subtle: #274D3A;
+    --text-primary: #ECFDF5;
+    --text-muted: #8BAAA0;
+    --accent: #10B981;
+    --accent-glow: rgba(16, 185, 129, 0.25);
+    --success: #34D399;
+    --warning: #FBBF24;
+    --danger: #F87171;
+  }
+
+  [data-theme="violet"] {
+    --bg-main: #090611;
+    --surface: #100C1D;
+    --surface-secondary: #18122A;
+    --border-color: #271E42;
+    --border-subtle: #392B60;
+    --text-primary: #F5F3FF;
+    --text-muted: #9D96B8;
+    --accent: #A855F7;
+    --accent-glow: rgba(168, 85, 247, 0.25);
+    --success: #34D399;
+    --warning: #FBBF24;
+    --danger: #FB7185;
+  }
+
+  [data-theme="amber"] {
+    --bg-main: #0C0A06;
+    --surface: #15110A;
+    --surface-secondary: #1F190F;
+    --border-color: #312718;
+    --border-subtle: #463823;
+    --text-primary: #FFFBEB;
+    --text-muted: #A89E8C;
+    --accent: #F59E0B;
+    --accent-glow: rgba(245, 158, 11, 0.25);
+    --success: #34D399;
+    --warning: #FBBF24;
+    --danger: #F87171;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border: none;
+    text-align: left;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-main);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-subtle);
+  }
+}
+
+.font-mono-code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}

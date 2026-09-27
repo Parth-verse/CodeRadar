@@ -1,0 +1,21 @@
+{
+  "name": "coderadar-backend",
+  "version": "1.0.0",
+  "description": "CodeRadar backend service - Static repository analysis and Gemini AI reasoning",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@google/genai": "^2.24.0",
+    "@google/generative-ai": "^0.24.1",
+    "adm-zip": "^0.5.16",
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
