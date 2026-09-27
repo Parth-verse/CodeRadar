@@ -98,7 +98,7 @@ export async function fetchGitHubRepository(owner, repo, githubToken) {
   const tree = treeRes.data.tree || [];
   const candidateFiles = tree
     .filter(item => item.type === 'blob' && isAllowedFile(item.path))
-    .slice(0, 30); // limit to 30 files for fast hackathon scanning
+    .slice(0, 30); // limit to 30 files for fast and reliable scanning
 
   // 3. Fetch file contents
   const files = [];

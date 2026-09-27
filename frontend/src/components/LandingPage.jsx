@@ -35,7 +35,7 @@ export default function LandingPage({ onStartScan, onTryDemo }) {
           </div>
           <div>
             <span className="font-bold tracking-tight text-white text-base">CodeRadar</span>
-            <span className="ml-2 text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-[#161E27] text-[#58A6FF] border border-[#21262D]">Hackathon Edition</span>
+            <span className="ml-2 text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-[#161E27] text-[var(--accent)] border border-[#21262D]">v1.0 Public Release</span>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -207,7 +207,7 @@ export default function LandingPage({ onStartScan, onTryDemo }) {
 
       {/* Footer */}
       <footer className="border-t border-[#21262D] py-6 px-6 text-center text-xs text-[#8B949E]">
-        CodeRadar &copy; 2026 &mdash; Built for Google DeepMind Agentic Pair Programming Hackathon
+        CodeRadar &copy; 2026 &mdash; AI-Powered Codebase Health & Intelligence Platform
       </footer>
     </div>
   );

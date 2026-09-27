@@ -61,7 +61,7 @@ import { getAuth } from 'firebase/auth';
 
 // WARNING: Hardcoded credentials detected
 const firebaseConfig = {
-  apiKey: "AIzaSyB391XqZ94FakeHackathonKeyDemoVal",
+  apiKey: "AIzaSyB391XqZ94DemoKeyStagingVal",
   authDomain: "pulsecart-prod.firebaseapp.com",
   projectId: "pulsecart-prod",
   storageBucket: "pulsecart-prod.appspot.com",

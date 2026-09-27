@@ -1,5 +1,5 @@
 // Built-in realistic multi-file repository with intentional detectable issues
-// for instant 1-click hackathon evaluation and demonstration.
+// for instant 1-click evaluation and demonstration.
 
 export const DEMO_REPOSITORY = {
   id: "pulsecart-core",
@@ -62,7 +62,7 @@ import { getAuth } from 'firebase/auth';
 
 // WARNING: Hardcoded credentials detected
 const firebaseConfig = {
-  apiKey: "AIzaSyB391XqZ94FakeHackathonKeyDemoVal",
+  apiKey: "AIzaSyB391XqZ94DemoKeyStagingVal",
   authDomain: "pulsecart-prod.firebaseapp.com",
   projectId: "pulsecart-prod",
   storageBucket: "pulsecart-prod.appspot.com",

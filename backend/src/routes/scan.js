@@ -146,7 +146,7 @@ router.post('/rescan', (req, res) => {
       const fb = filesToScan.find(f => f.path === 'src/config/firebase.js');
       if (fb) {
         fb.content = fb.content.replace(
-          'apiKey: "AIzaSyB391XqZ94FakeHackathonKeyDemoVal"',
+          'apiKey: "AIzaSyB391XqZ94DemoKeyStagingVal"',
           'apiKey: process.env.FIREBASE_API_KEY'
         );
       }
