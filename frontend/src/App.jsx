@@ -19,6 +19,8 @@ import ScanModal from './components/ScanModal.jsx';
 import SettingsModal from './components/SettingsModal.jsx';
 import AuditReportModal from './components/AuditReportModal.jsx';
 
+import { getBaseReport } from './services/apiClient.js';
+
 export default function App() {
   // Application State
   const [report, setReport] = useState(null);
@@ -52,14 +54,16 @@ export default function App() {
     setResolvedFindingIds([]);
     try {
       const res = await fetch('/api/scan/demo', { method: 'POST' });
+      if (!res.ok) throw new Error("API unavailable");
       const data = await res.json();
       setReport(data);
+    } catch (e) {
+      console.warn("Using client-side analysis fallback:", e.message);
+      const data = getBaseReport([]);
+      setReport(data);
+    } finally {
       setIsScanModalOpen(false);
       setActiveTab('dashboard');
-    } catch (e) {
-      console.error("Demo scan error:", e);
-      alert("Failed to scan demo repository.");
-    } finally {
       setIsScanning(false);
     }
   };
@@ -140,6 +144,7 @@ export default function App() {
           resolvedFindingIds: idsToResolve
         })
       });
+      if (!res.ok) throw new Error("Rescan API offline");
       const data = await res.json();
       setRescanDelta({
         previousScore: data.previousScore,
@@ -151,8 +156,24 @@ export default function App() {
       setReport(data.report);
       setActiveTab('dashboard');
     } catch (e) {
-      console.error("Rescan failed:", e);
-      alert("Failed to complete rescan.");
+      console.warn("Using client-side rescan calculation:", e.message);
+      const prev = report || getBaseReport([]);
+      const next = getBaseReport(idsToResolve);
+      const scoreDiff = next.healthScore - prev.healthScore;
+      setRescanDelta({
+        previousScore: prev.healthScore,
+        newScore: next.healthScore,
+        scoreDiff,
+        resolvedFindings: prev.findings.filter(f => !next.findings.some(nf => nf.id === f.id)),
+        categoryDiff: {
+          security: next.categoryScores.security - prev.categoryScores.security,
+          bugs: next.categoryScores.bugs - prev.categoryScores.bugs,
+          quality: next.categoryScores.quality - prev.categoryScores.quality,
+          testing: next.categoryScores.testing - prev.categoryScores.testing
+        }
+      });
+      setReport(next);
+      setActiveTab('dashboard');
     } finally {
       setIsScanning(false);
     }
